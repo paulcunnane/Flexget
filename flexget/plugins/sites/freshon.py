@@ -4,7 +4,10 @@ from builtins import *  # noqa pylint: disable=unused-import, redefined-builtin
 import logging
 import re
 import urllib
-from urlparse import urlsplit, parse_qs
+try:
+    from urlparse import urlsplit, parse_qs
+except ImportError:
+    from urllib.parse import urlsplit, parse_qs
 
 from flexget import plugin
 from flexget.entry import Entry
